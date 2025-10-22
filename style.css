@@ -4364,10 +4364,6 @@ body {
     position: absolute !important;
     bottom: 18px !important;
     left: 18px !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 10px !important;
     z-index: 3 !important;
     opacity: 0 !important;
     visibility: hidden !important;
@@ -4382,22 +4378,22 @@ body {
 }
 
 .nymia-audio-avatar {
-    width: 36px !important;
-    height: 36px !important;
-    border-radius: 50% !important;
-    overflow: hidden !important;
-    border: 2.5px solid #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
     flex-shrink: 0 !important;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5) !important;
-    background: #fff !important;
 }
 
 .nymia-audio-avatar img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 36px !important;
+    height: 36px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
     display: block !important;
+    border: 2.5px solid #ffffff !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5) !important;
+    background: #fff !important;
+    flex-shrink: 0 !important;
 }
 
 .nymia-audio-name {
@@ -4409,8 +4405,8 @@ body {
     letter-spacing: -0.01em !important;
     line-height: 1.3 !important;
     white-space: nowrap !important;
-    overflow: visible !important;
-    flex: 0 1 auto !important;
+    margin-left: 0 !important;
+    padding: 0 !important;
 }
 
 /* Views Counter - Hidden by default, shows on hover */
@@ -4623,6 +4619,338 @@ body {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+}
+
+/* ========================================
+   PDF PAGE
+======================================== */
+
+.nymia-pdf-page {
+    padding: 32px;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+}
+
+/* PDF Header */
+.nymia-pdf-header {
+    margin-bottom: 48px;
+}
+
+.nymia-pdf-header-content {
+    margin-bottom: 32px;
+}
+
+.nymia-pdf-main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    letter-spacing: -0.02em;
+}
+
+.nymia-pdf-subtitle {
+    font-size: 1.125rem;
+    color: #999;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* PDF Layout */
+.nymia-pdf-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 32px;
+}
+
+/* PDF Grid */
+.nymia-pdf-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 24px !important;
+}
+
+/* PDF Card */
+.nymia-pdf-card {
+    position: relative !important;
+    background: #1E1E1E !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.nymia-pdf-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 16px 40px rgba(191, 76, 26, 0.25) !important;
+    border-color: rgba(191, 76, 26, 0.3) !important;
+}
+
+/* PDF Cover */
+.nymia-pdf-cover {
+    position: relative;
+    width: 100%;
+    padding-bottom: 140%;
+    background: linear-gradient(135deg, #2A2A2A 0%, #1A1A1A 100%);
+    overflow: hidden;
+}
+
+.nymia-pdf-cover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.nymia-pdf-card:hover .nymia-pdf-cover img {
+    transform: scale(1.08);
+    filter: brightness(0.7);
+}
+
+/* PDF Badge */
+.nymia-pdf-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
+    padding: 8px 14px;
+    border-radius: 20px;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(191, 76, 26, 0.4);
+}
+
+.nymia-pdf-badge svg {
+    width: 16px;
+    height: 16px;
+    color: #ffffff;
+}
+
+.nymia-pdf-badge span {
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Read Button - Hidden by default */
+.nymia-pdf-read-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: rgba(191, 76, 26, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 20px 32px;
+    border-radius: 16px;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.nymia-pdf-card:hover .nymia-pdf-read-btn {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.nymia-pdf-read-btn svg {
+    width: 28px;
+    height: 28px;
+    color: #ffffff;
+}
+
+.nymia-pdf-read-btn span {
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* PDF Info Overlay */
+.nymia-pdf-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nymia-pdf-card:hover .nymia-pdf-info-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nymia-pdf-pages,
+.nymia-pdf-size {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nymia-pdf-pages svg,
+.nymia-pdf-size svg {
+    width: 14px;
+    height: 14px;
+    color: #C7541A;
+}
+
+.nymia-pdf-pages span,
+.nymia-pdf-size span {
+    color: #ffffff;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+/* PDF Details */
+.nymia-pdf-details {
+    padding: 20px;
+}
+
+.nymia-pdf-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+}
+
+.nymia-pdf-card:hover .nymia-pdf-title {
+    color: #C7541A;
+}
+
+.nymia-pdf-author {
+    font-size: 0.875rem;
+    color: #999;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* PDF Sidebar */
+.nymia-pdf-sidebar {
+    background: linear-gradient(135deg, #1E1E1E 0%, #141414 100%);
+    border-radius: 20px;
+    padding: 28px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nymia-pdf-sidebar-title {
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 24px 0;
+    letter-spacing: -0.01em;
+}
+
+.nymia-pdf-sidebar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nymia-pdf-sidebar-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nymia-pdf-sidebar-item:hover {
+    background: rgba(191, 76, 26, 0.1);
+    border-color: rgba(191, 76, 26, 0.3);
+    transform: translateX(4px);
+}
+
+.nymia-pdf-rank {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: #ffffff;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(191, 76, 26, 0.3);
+}
+
+.nymia-pdf-sidebar-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.nymia-pdf-sidebar-name {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.nymia-pdf-sidebar-author {
+    font-size: 0.8125rem;
+    color: #999;
+    margin: 0 0 8px 0;
+    font-weight: 500;
+}
+
+.nymia-pdf-downloads {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: #C7541A;
+    font-weight: 600;
+}
+
+.nymia-pdf-downloads svg {
+    width: 12px;
+    height: 12px;
 }
 
 /* ========================================

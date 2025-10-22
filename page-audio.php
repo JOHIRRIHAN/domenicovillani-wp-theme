@@ -88,8 +88,8 @@ get_header(); ?>
                             <div class="nymia-audio-user">
                                 <div class="nymia-audio-avatar">
                                     <img src="<?php echo esc_url($audio['profile_image']); ?>" alt="<?php echo esc_attr($audio['name']); ?>" />
+                                    <span class="nymia-audio-name"><?php echo esc_html($audio['name']); ?></span>
                                 </div>
-                                <span class="nymia-audio-name"><?php echo esc_html($audio['name']); ?></span>
                             </div>
 
                             <!-- Views Counter -->

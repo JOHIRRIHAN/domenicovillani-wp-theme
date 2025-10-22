@@ -105,6 +105,34 @@ function nymia_create_dashboard_page() {
         }
     }
     
+    // Create PDF page
+    $pdf_page = get_page_by_path('pdf');
+    
+    if (!$pdf_page) {
+        $pdf_data = array(
+            'post_title'    => 'PDF',
+            'post_content'  => 'Browse and read premium PDF content.',
+            'post_status'   => 'publish',
+            'post_type'     => 'page',
+            'post_name'     => 'pdf',
+            'post_author'   => 1,
+            'page_template' => 'page-pdf.php',
+        );
+        
+        $pdf_id = wp_insert_post($pdf_data);
+        
+        // Set the template for the PDF page
+        if ($pdf_id) {
+            update_post_meta($pdf_id, '_wp_page_template', 'page-pdf.php');
+        }
+    } else {
+        // Update template if page exists but doesn't have template
+        $template = get_post_meta($pdf_page->ID, '_wp_page_template', true);
+        if ($template !== 'page-pdf.php') {
+            update_post_meta($pdf_page->ID, '_wp_page_template', 'page-pdf.php');
+        }
+    }
+    
     // Create Profile page
     $profile_page = get_page_by_path('profile');
     
@@ -222,10 +250,10 @@ function nymia_create_dashboard_page() {
  * Enqueue scripts and styles
  */
 function nymia_scripts() {
-    wp_enqueue_style('nymia-style', get_stylesheet_uri(), array(), '2.0.9');
+    wp_enqueue_style('nymia-style', get_stylesheet_uri(), array(), '2.2.0');
     
     // Add custom JavaScript for mobile menu toggle
-    wp_enqueue_script('nymia-script', get_template_directory_uri() . '/js/main.js', array(), '2.0.9', true);
+    wp_enqueue_script('nymia-script', get_template_directory_uri() . '/js/main.js', array(), '2.2.0', true);
 }
 add_action('wp_enqueue_scripts', 'nymia_scripts');
 
