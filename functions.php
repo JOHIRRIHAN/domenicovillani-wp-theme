@@ -222,10 +222,10 @@ function nymia_create_dashboard_page() {
  * Enqueue scripts and styles
  */
 function nymia_scripts() {
-    wp_enqueue_style('nymia-style', get_stylesheet_uri(), array(), '2.0.0');
+    wp_enqueue_style('nymia-style', get_stylesheet_uri(), array(), '2.0.9');
     
     // Add custom JavaScript for mobile menu toggle
-    wp_enqueue_script('nymia-script', get_template_directory_uri() . '/js/main.js', array(), '2.0.0', true);
+    wp_enqueue_script('nymia-script', get_template_directory_uri() . '/js/main.js', array(), '2.0.9', true);
 }
 add_action('wp_enqueue_scripts', 'nymia_scripts');
 

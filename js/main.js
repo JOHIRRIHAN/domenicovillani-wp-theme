@@ -93,9 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Filter button functionality (for both old and new dashboard)
+    // Filter button functionality (for dashboard, audio page, etc.)
     const filterButtons = document.querySelectorAll('.nymia-filter-btn, .nymia-filter-tab');
     const sections = document.querySelectorAll('.nymia-section, .nymia-dashboard-section');
+    const audioCards = document.querySelectorAll('.nymia-audio-card');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -107,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Get the filter value
             const filterValue = this.getAttribute('data-filter');
             
-            // Show/hide sections based on filter
+            // Show/hide sections based on filter (for dashboard)
             sections.forEach(section => {
                 const categories = section.getAttribute('data-category');
                 
@@ -128,6 +129,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     // Hide non-matching sections
                     section.style.display = 'none';
+                }
+            });
+            
+            // Show/hide audio cards based on filter (for audio page)
+            audioCards.forEach((card, index) => {
+                const categories = card.getAttribute('data-category');
+                
+                if (!categories) return;
+                
+                const categoryList = categories.split(' ');
+                
+                if (filterValue === 'all') {
+                    // Show all cards with animation
+                    setTimeout(() => {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInCard 0.4s ease forwards';
+                    }, index * 50);
+                } else if (categoryList.includes(filterValue)) {
+                    // Show matching card with animation
+                    setTimeout(() => {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInCard 0.4s ease forwards';
+                    }, index * 50);
+                } else {
+                    // Hide non-matching card
+                    card.style.opacity = '0';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
                 }
             });
         });

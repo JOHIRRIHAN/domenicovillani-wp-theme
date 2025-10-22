@@ -64,29 +64,30 @@ get_header(); ?>
                     <?php 
                     // Dummy data for audio posts
                     $audio_posts = array(
-                        array('name' => 'Kimberly', 'views' => '1.2k', 'image' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Sarah Johnson', 'views' => '2.5k', 'image' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Emily Chen', 'views' => '856', 'image' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=500&fit=crop', 'category' => 'new'),
-                        array('name' => 'Jessica Miller', 'views' => '3.1k', 'image' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=500&fit=crop', 'category' => 'popular'),
-                        array('name' => 'Amanda Davis', 'views' => '1.8k', 'image' => 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=500&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Rachel Green', 'views' => '945', 'image' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=500&fit=crop', 'category' => 'new'),
-                        array('name' => 'Lisa Anderson', 'views' => '2.2k', 'image' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop', 'category' => 'popular'),
-                        array('name' => 'Monica Taylor', 'views' => '1.5k', 'image' => 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=500&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Sophie Brown', 'views' => '678', 'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop', 'category' => 'new'),
-                        array('name' => 'Emma Wilson', 'views' => '3.4k', 'image' => 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=500&fit=crop', 'category' => 'popular'),
-                        array('name' => 'Olivia Moore', 'views' => '1.9k', 'image' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Isabella Martin', 'views' => '2.7k', 'image' => 'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400&h=500&fit=crop', 'category' => 'new'),
+                        array('name' => 'Kimberly', 'views' => '1.2k', 'image' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop', 'category' => 'trending'),
+                        array('name' => 'Sarah Johnson', 'views' => '2.5k', 'image' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop', 'category' => 'trending'),
+                        array('name' => 'Emily Chen', 'views' => '856', 'image' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop', 'category' => 'new'),
+                        array('name' => 'Jessica Miller', 'views' => '3.1k', 'image' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop', 'category' => 'popular'),
+                        array('name' => 'Amanda Davis', 'views' => '1.8k', 'image' => 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop', 'category' => 'trending'),
+                        array('name' => 'Rachel Green', 'views' => '945', 'image' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop', 'category' => 'new'),
+                        array('name' => 'Lisa Anderson', 'views' => '2.2k', 'image' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop', 'category' => 'popular'),
+                        array('name' => 'Monica Taylor', 'views' => '1.5k', 'image' => 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop', 'category' => 'trending'),
+                        array('name' => 'Sophie Brown', 'views' => '678', 'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop', 'category' => 'new'),
+                        array('name' => 'Emma Wilson', 'views' => '3.4k', 'image' => 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop', 'category' => 'popular'),
+                        array('name' => 'Olivia Moore', 'views' => '1.9k', 'image' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop', 'category' => 'trending'),
+                        array('name' => 'Isabella Martin', 'views' => '2.7k', 'image' => 'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=100&h=100&fit=crop', 'category' => 'new'),
                     );
                     
                     foreach ($audio_posts as $audio): ?>
                     <div class="nymia-audio-card" data-category="<?php echo esc_attr($audio['category']); ?>">
+                        
                         <div class="nymia-audio-thumbnail">
                             <img src="<?php echo esc_url($audio['image']); ?>" alt="<?php echo esc_attr($audio['name']); ?>" />
                             
                             <!-- User Info Overlay -->
                             <div class="nymia-audio-user">
                                 <div class="nymia-audio-avatar">
-                                    <img src="<?php echo esc_url($audio['image']); ?>" alt="<?php echo esc_attr($audio['name']); ?>" />
+                                    <img src="<?php echo esc_url($audio['profile_image']); ?>" alt="<?php echo esc_attr($audio['name']); ?>" />
                                 </div>
                                 <span class="nymia-audio-name"><?php echo esc_html($audio['name']); ?></span>
                             </div>
