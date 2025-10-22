@@ -93,9 +93,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Filter button functionality
-    const filterButtons = document.querySelectorAll('.nymia-filter-btn');
-    const sections = document.querySelectorAll('.nymia-section');
+    // Filter button functionality (for both old and new dashboard)
+    const filterButtons = document.querySelectorAll('.nymia-filter-btn, .nymia-filter-tab');
+    const sections = document.querySelectorAll('.nymia-section, .nymia-dashboard-section');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -109,12 +109,20 @@ document.addEventListener('DOMContentLoaded', function () {
             
             // Show/hide sections based on filter
             sections.forEach(section => {
-                const category = section.getAttribute('data-category');
+                const categories = section.getAttribute('data-category');
+                
+                if (!categories) return;
+                
+                const categoryList = categories.split(' ');
                 
                 if (filterValue === 'all') {
-                    // Show all sections
-                    section.style.display = 'block';
-                } else if (filterValue === category) {
+                    // Show sections that include 'all' in their categories
+                    if (categoryList.includes('all')) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                } else if (categoryList.includes(filterValue)) {
                     // Show matching section
                     section.style.display = 'block';
                 } else {

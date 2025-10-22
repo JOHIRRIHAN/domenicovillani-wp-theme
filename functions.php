@@ -77,6 +77,34 @@ function nymia_create_dashboard_page() {
         wp_insert_post($live_audio_data);
     }
     
+    // Create Audio page
+    $audio_page = get_page_by_path('audio');
+    
+    if (!$audio_page) {
+        $audio_data = array(
+            'post_title'    => 'Audio',
+            'post_content'  => 'Browse and listen to audio posts.',
+            'post_status'   => 'publish',
+            'post_type'     => 'page',
+            'post_name'     => 'audio',
+            'post_author'   => 1,
+            'page_template' => 'page-audio.php',
+        );
+        
+        $audio_id = wp_insert_post($audio_data);
+        
+        // Set the template for the audio page
+        if ($audio_id) {
+            update_post_meta($audio_id, '_wp_page_template', 'page-audio.php');
+        }
+    } else {
+        // Update template if page exists but doesn't have template
+        $template = get_post_meta($audio_page->ID, '_wp_page_template', true);
+        if ($template !== 'page-audio.php') {
+            update_post_meta($audio_page->ID, '_wp_page_template', 'page-audio.php');
+        }
+    }
+    
     // Create Profile page
     $profile_page = get_page_by_path('profile');
     
@@ -194,10 +222,10 @@ function nymia_create_dashboard_page() {
  * Enqueue scripts and styles
  */
 function nymia_scripts() {
-    wp_enqueue_style('nymia-style', get_stylesheet_uri(), array(), '1.3.1');
+    wp_enqueue_style('nymia-style', get_stylesheet_uri(), array(), '2.0.0');
     
     // Add custom JavaScript for mobile menu toggle
-    wp_enqueue_script('nymia-script', get_template_directory_uri() . '/js/main.js', array(), '1.3.1', true);
+    wp_enqueue_script('nymia-script', get_template_directory_uri() . '/js/main.js', array(), '2.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'nymia_scripts');
 

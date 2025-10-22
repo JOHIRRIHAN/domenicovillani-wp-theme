@@ -3913,26 +3913,66 @@ body {
 }
 
 .nymia-filter-tab {
-    padding: 12px 32px;
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #3a3a3a;
+    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #999;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 0.9375rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
+}
+
+.nymia-filter-tab::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(191, 76, 26, 0.15), rgba(159, 43, 26, 0.15));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.nymia-filter-tab:hover::before {
+    opacity: 1;
+}
+
+.nymia-filter-tab svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
 }
 
 .nymia-filter-tab:hover {
-    border-color: #C7541A;
-    background-color: rgba(199, 84, 26, 0.1);
+    border-color: rgba(199, 84, 26, 0.4);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(191, 76, 26, 0.15);
+}
+
+.nymia-filter-tab:hover svg {
+    transform: scale(1.1);
 }
 
 .nymia-filter-tab.active {
     background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
     border-color: #BF4C1A;
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(191, 76, 26, 0.3);
+}
+
+.nymia-filter-tab.active::before {
+    opacity: 0;
+}
+
+.nymia-filter-tab.active svg {
     color: #ffffff;
 }
 
@@ -4171,29 +4211,382 @@ body {
 }
 
 /* ========================================
+   DASHBOARD NEW LAYOUT
+======================================== */
+
+.nymia-dashboard-new {
+    padding: 40px;
+}
+
+.nymia-dashboard-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+}
+
+.nymia-dashboard-content {
+    min-width: 0;
+}
+
+.nymia-dashboard-section {
+    margin-bottom: 40px;
+}
+
+.nymia-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 32px 0;
+}
+
+/* ========================================
+   AUDIO PAGE STYLES (v2.0)
+======================================== */
+
+/* Audio Page Container */
+.nymia-audio-page {
+    padding: 48px !important;
+    background: linear-gradient(180deg, rgba(191, 76, 26, 0.03) 0%, transparent 300px);
+}
+
+/* Audio Header */
+.nymia-audio-header {
+    margin-bottom: 48px;
+}
+
+.nymia-audio-header-content {
+    margin-bottom: 32px;
+}
+
+.nymia-audio-main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    letter-spacing: -0.02em;
+}
+
+.nymia-title-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nymia-title-icon svg {
+    width: 28px;
+    height: 28px;
+    color: #ffffff;
+}
+
+.nymia-audio-subtitle {
+    font-size: 1.125rem;
+    color: #888;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Audio Layout */
+.nymia-audio-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 40px;
+}
+
+/* Audio Grid */
+.nymia-audio-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+}
+
+/* Audio Card */
+.nymia-audio-card {
+    position: relative !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    transition: transform 0.3s ease !important;
+}
+
+.nymia-audio-card:hover {
+    transform: translateY(-4px) !important;
+}
+
+.nymia-audio-thumbnail {
+    position: relative !important;
+    width: 100% !important;
+    padding-bottom: 133% !important;
+    background: #1a1a1a !important;
+    overflow: hidden !important;
+}
+
+.nymia-audio-thumbnail img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* User Info Overlay */
+.nymia-audio-user {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+}
+
+.nymia-audio-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    flex-shrink: 0;
+}
+
+.nymia-audio-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nymia-audio-name {
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Views Counter */
+.nymia-audio-views {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.nymia-audio-views svg {
+    width: 16px;
+    height: 16px;
+    color: #ffffff;
+}
+
+.nymia-audio-views span {
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* ========================================
+   TRENDING SIDEBAR
+======================================== */
+
+.nymia-trending-sidebar {
+    background: linear-gradient(145deg, #1e1e1e, #181818);
+    border-radius: 24px;
+    padding: 32px;
+    height: fit-content;
+    position: sticky;
+    top: 120px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.nymia-trending-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 28px 0;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nymia-trending-title::before {
+    content: '🔥';
+    font-size: 1.5rem;
+}
+
+.nymia-trending-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Trending Item */
+.nymia-trending-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.nymia-trending-item:hover {
+    background: linear-gradient(135deg, rgba(191, 76, 26, 0.1), rgba(159, 43, 26, 0.05));
+    border-color: rgba(191, 76, 26, 0.2);
+    transform: translateX(4px);
+}
+
+.nymia-trending-rank {
+    font-size: 1.25rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 32px;
+    text-align: center;
+    font-style: italic;
+}
+
+.nymia-trending-cover {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nymia-trending-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.nymia-trending-item:hover .nymia-trending-cover img {
+    transform: scale(1.1);
+}
+
+.nymia-trending-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
+    border: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(191, 76, 26, 0.5);
+}
+
+.nymia-trending-item:hover .nymia-trending-play {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.nymia-trending-play svg {
+    width: 14px;
+    height: 14px;
+    margin-left: 2px;
+}
+
+.nymia-trending-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.nymia-trending-song {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+}
+
+.nymia-trending-artist {
+    font-size: 0.875rem;
+    color: #999;
+    margin: 0 0 6px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.nymia-trending-plays {
+    font-size: 0.8125rem;
+    color: #777;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nymia-trending-plays::before {
+    content: '▶';
+    font-size: 0.625rem;
+    color: #C7541A;
+}
+
+/* ========================================
    RESPONSIVE - LIVE AUDIO PAGE
 ======================================== */
 
 @media (max-width: 1400px) {
-    .nymia-live-audio-grid {
+    .nymia-live-audio-grid,
+    .nymia-audio-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 1024px) {
-    .nymia-live-audio-page {
+    .nymia-live-audio-page,
+    .nymia-audio-page {
         padding: 24px;
     }
     
-    .nymia-live-audio-layout {
+    .nymia-live-audio-layout,
+    .nymia-dashboard-layout,
+    .nymia-audio-layout {
         grid-template-columns: 1fr;
     }
     
-    .nymia-live-audio-grid {
+    .nymia-live-audio-grid,
+    .nymia-audio-grid {
         grid-template-columns: repeat(3, 1fr);
     }
     
-    .nymia-suggestions-sidebar {
+    .nymia-suggestions-sidebar,
+    .nymia-trending-sidebar {
         position: static;
     }
     
@@ -4205,47 +4598,126 @@ body {
     .nymia-suggestion-card {
         min-width: 280px;
     }
+    
+    .nymia-trending-list {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    
+    .nymia-trending-item {
+        min-width: 280px;
+        flex-shrink: 0;
+    }
+    
+    .nymia-dashboard-new {
+        padding: 24px;
+    }
 }
 
 @media (max-width: 768px) {
-    .nymia-live-audio-page {
-        padding: 16px;
+    .nymia-live-audio-page,
+    .nymia-dashboard-new,
+    .nymia-audio-page {
+        padding: 24px 16px;
+    }
+    
+    .nymia-audio-header {
+        margin-bottom: 32px;
+    }
+    
+    .nymia-audio-main-title {
+        font-size: 2rem;
+        gap: 12px;
+    }
+    
+    .nymia-title-icon {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .nymia-title-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .nymia-audio-subtitle {
+        font-size: 1rem;
     }
     
     .nymia-filter-tabs {
         overflow-x: auto;
-        gap: 12px;
+        gap: 10px;
         margin-bottom: 24px;
         padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    
+    .nymia-filter-tabs::-webkit-scrollbar {
+        display: none;
     }
     
     .nymia-filter-tab {
-        padding: 10px 24px;
-        font-size: 0.9375rem;
+        padding: 10px 20px;
+        font-size: 0.875rem;
     }
     
-    .nymia-page-heading {
+    .nymia-filter-tab svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .nymia-page-heading,
+    .nymia-section-title {
         font-size: 1.5rem;
         margin-bottom: 24px;
     }
     
-    .nymia-live-audio-grid {
+    .nymia-live-audio-grid,
+    .nymia-audio-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
     
-    .nymia-suggestions-sidebar {
+    .nymia-suggestions-sidebar,
+    .nymia-trending-sidebar {
         padding: 20px;
     }
     
-    .nymia-suggestions-title {
+    .nymia-suggestions-title,
+    .nymia-trending-title {
         font-size: 1.25rem;
     }
 }
 
 @media (max-width: 480px) {
-    .nymia-live-audio-page {
-        padding: 12px;
+    .nymia-live-audio-page,
+    .nymia-dashboard-new,
+    .nymia-audio-page {
+        padding: 20px 12px;
+    }
+    
+    .nymia-audio-header {
+        margin-bottom: 24px;
+    }
+    
+    .nymia-audio-main-title {
+        font-size: 1.625rem;
+        gap: 10px;
+    }
+    
+    .nymia-title-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nymia-title-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .nymia-audio-subtitle {
+        font-size: 0.9375rem;
     }
     
     .nymia-filter-tabs {
@@ -4253,16 +4725,24 @@ body {
     }
     
     .nymia-filter-tab {
-        padding: 8px 20px;
-        font-size: 0.875rem;
+        padding: 8px 16px;
+        font-size: 0.8125rem;
+        gap: 6px;
     }
     
-    .nymia-page-heading {
+    .nymia-filter-tab svg {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .nymia-page-heading,
+    .nymia-section-title {
         font-size: 1.25rem;
         margin-bottom: 20px;
     }
     
-    .nymia-live-audio-grid {
+    .nymia-live-audio-grid,
+    .nymia-audio-grid {
         grid-template-columns: 1fr;
     }
     
@@ -4275,11 +4755,16 @@ body {
         font-size: 0.875rem;
     }
     
-    .nymia-suggestions-sidebar {
+    .nymia-suggestions-sidebar,
+    .nymia-trending-sidebar {
         padding: 16px;
     }
     
     .nymia-suggestion-card {
+        min-width: 240px;
+    }
+    
+    .nymia-trending-item {
         min-width: 240px;
     }
 }
