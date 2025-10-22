@@ -409,53 +409,57 @@ body {
 }
 
 .nymia-btn-gradient {
-    padding: 10px 34px;
-    background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #D14619, #8B2A0F);
     color: white;
-    border: none;
+    border: 1.5px solid transparent;
     border-radius: 24px;
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-size: 0.875rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(191, 76, 26, 0.3);
+    box-shadow: 0 4px 12px rgba(209, 70, 25, 0.3);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    
 }
+
 .top-btn{
     margin-top: 70px;
     font-size: 1.1rem !important;
     font-weight: 400;
+    padding: 10px 34px !important;
+    background: linear-gradient(135deg, #BF4C1A, #9F2B1A) !important;
 }
+
 .nymia-btn-gradient svg {
     width: 18px;
     height: 18px;
 }
 
 .nymia-btn-gradient:hover {
-    background: linear-gradient(135deg, #9F2B1A, #BF4C1A);
+    background: linear-gradient(135deg, #E85A2A, #A63312);
+    border-color: transparent;
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(191, 76, 26, 0.4);
+    box-shadow: 0 6px 20px rgba(232, 90, 42, 0.5);
 }
 
 .nymia-btn-gradient:active {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(191, 76, 26, 0.3);
+    box-shadow: 0 2px 10px rgba(209, 70, 25, 0.4);
 }
 
 .nymia-btn-outline {
-    background-color: #161616;
-    border: 1px solid #333333;
+    background-color: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
-    padding: 8px 16px;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 24px;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -463,14 +467,14 @@ body {
 }
 
 .nymia-btn-outline:hover {
-    background-color: #C7541A;
-    border-color: #C7541A;
-    color: white;
+    background-color: rgba(255, 87, 34, 0.1);
+    border-color: #FF5722;
+    color: #FF5722;
 }
 
 .nymia-btn-outline svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
 }
 
@@ -984,16 +988,17 @@ body {
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 80px);
+    background: #000000;
+    position: relative;
 }
 
 .nymia-stream-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 32px;
-    border-bottom: 1px solid var(--border);
-    background-color: rgba(0, 0%, 7%, 0.5);
-    backdrop-filter: blur(8px);
+    padding: 20px 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: transparent;
 }
 
 .nymia-host-info {
@@ -1095,23 +1100,24 @@ body {
 .nymia-stream-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--foreground);
-    margin: 0;
+    color: #ffffff;
+    margin: 0 0 20px 0;
 }
 
 .nymia-main-video {
     position: relative;
-    background-color: var(--card);
+    background-color: #1A1A1A;
     border-radius: 16px;
     overflow: hidden;
     aspect-ratio: 16/9;
-    background: linear-gradient(135deg, var(--card), var(--muted));
+    background: linear-gradient(135deg, #1A1A1A, #0D0D0D);
 }
 
 .nymia-main-video img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.7;
 }
 
 .nymia-center-avatar {
@@ -1123,34 +1129,35 @@ body {
 }
 
 .nymia-center-avatar img {
-    width: 192px;
-    height: 192px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    border: 4px solid var(--primary);
-    box-shadow: 0 0 20px rgba(199, 84, 26, 0.5);
+    border: 5px solid #FF5722;
+    box-shadow: 0 0 30px rgba(255, 87, 34, 0.6);
+    object-fit: cover;
 }
 
 .nymia-fullscreen-btn {
     position: absolute;
     bottom: 16px;
     right: 16px;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 44px;
+    height: 44px;
+    background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(8px);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--foreground);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: #ffffff;
     cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.nymia-main-video:hover .nymia-fullscreen-btn {
-    opacity: 1;
+.nymia-fullscreen-btn:hover {
+    background-color: rgba(255, 87, 34, 0.8);
+    border-color: #FF5722;
 }
 
 .nymia-fullscreen-btn svg {
@@ -1166,17 +1173,19 @@ body {
 
 .nymia-thumbnail-stream {
     position: relative;
-    background-color: var(--muted);
+    background-color: #1A1A1A;
     border-radius: 12px;
     overflow: hidden;
     aspect-ratio: 16/9;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .nymia-thumbnail-stream:hover {
-    ring: 2px solid var(--primary);
-    transform: scale(1.02);
+    border-color: #FF5722;
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
 }
 
 .nymia-thumbnail-stream img {
@@ -1187,103 +1196,141 @@ body {
 
 .nymia-stream-label {
     position: absolute;
-    bottom: 8px;
-    left: 8px;
-    background-color: rgba(0, 0%, 7%, 0.8);
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(8px);
-    padding: 4px 12px;
-    border-radius: 9999px;
+    padding: 6px 12px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
 .nymia-stream-indicator {
-    width: 8px;
-    height: 8px;
-    background-color: var(--secondary);
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    animation: pulse 2s infinite;
 }
 
 .nymia-stream-label span {
     font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--foreground);
+    font-weight: 600;
+    color: #ffffff;
 }
 
 .nymia-audio-btn {
     position: absolute;
     top: 8px;
     right: 8px;
-    width: 32px;
-    height: 32px;
-    background-color: var(--primary);
+    width: 36px;
+    height: 36px;
+    background-color: #FF5722;
     border: none;
     border-radius: 50%;
     color: white;
     cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.3s;
+    opacity: 1;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(255, 87, 34, 0.4);
 }
 
-.nymia-thumbnail-stream:hover .nymia-audio-btn {
-    opacity: 1;
+.nymia-audio-btn:hover {
+    background-color: #E64A19;
+    transform: scale(1.1);
 }
 
 .nymia-audio-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
+}
+
+.nymia-audio-btn.muted {
+    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 0.7;
 }
 
 /* Live Chat Styles */
 .nymia-live-chat {
-    width: 320px;
-    background-color: var(--card);
-    border-left: 1px solid var(--border);
-    height: calc(100vh - 80px);
+    width: 340px;
+    background-color: #1A1A1A;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    max-height: calc(100vh - 160px);
     display: flex;
     flex-direction: column;
+    border-radius: 0;
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
 }
 
 .nymia-chat-header {
-    padding: 16px;
-    border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+}
+
+.nymia-chat-header svg {
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
 }
 
 .nymia-live-indicator {
     width: 8px;
     height: 8px;
-    background-color: var(--secondary);
+    background-color: #4CAF50;
     border-radius: 50%;
     animation: pulse 2s infinite;
 }
 
 .nymia-chat-title {
     font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--foreground);
+    font-weight: 700;
+    color: #ffffff;
     margin: 0;
+    flex: 1;
 }
 
 .nymia-message-count {
-    margin-left: auto;
     font-size: 0.875rem;
-    color: var(--muted-foreground);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .nymia-chat-messages {
     flex: 1;
     overflow-y: auto;
-    padding: 16px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
+    max-height: 420px;
+}
+
+.nymia-chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nymia-chat-messages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.nymia-chat-messages::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.nymia-chat-messages::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .nymia-chat-message {
@@ -1296,11 +1343,12 @@ body {
 }
 
 .nymia-message-avatar {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .nymia-message-avatar img {
@@ -1338,15 +1386,15 @@ body {
 }
 
 .nymia-message-bubble {
-    padding: 8px 16px;
-    border-radius: 16px;
-    background-color: rgba(0, 0%, 15%, 0.2);
-    color: var(--secondary-foreground);
+    padding: 10px 16px;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
 }
 
 .nymia-message-bubble-current {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
+    background-color: #FF5722;
+    color: #ffffff;
 }
 
 .nymia-message-bubble p {
@@ -1355,18 +1403,20 @@ body {
 }
 
 .nymia-chat-input {
-    padding: 16px;
-    border-top: 1px solid var(--border);
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
-    gap: 8px;
+    gap: 12px;
+    background-color: #1A1A1A;
 }
 
 .nymia-input-avatar {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .nymia-input-avatar img {
@@ -1382,87 +1432,111 @@ body {
 
 .nymia-chat-input-field {
     width: 100%;
-    padding: 8px 40px 8px 12px;
-    background-color: rgba(0, 0%, 20%, 0.5);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--foreground);
+    padding: 12px 44px 12px 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
     font-size: 0.875rem;
+}
+
+.nymia-chat-input-field::placeholder {
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .nymia-chat-input-field:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: #FF5722;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .nymia-send-btn {
     position: absolute;
-    right: 4px;
+    right: 6px;
     top: 50%;
     transform: translateY(-50%);
-    width: 28px;
-    height: 28px;
-    background: none;
+    width: 32px;
+    height: 32px;
+    background: transparent;
     border: none;
-    color: var(--secondary);
+    color: #FF5722;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.nymia-send-btn:hover {
+    background-color: rgba(255, 87, 34, 0.1);
 }
 
 .nymia-send-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
 }
 
 /* Stream Controls */
 .nymia-stream-controls {
     position: absolute;
-    bottom: 32px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 16px;
-    background-color: rgba(0, 0%, 11%, 0.8);
-    backdrop-filter: blur(16px);
-    padding: 16px 24px;
-    border-radius: 9999px;
-    border: 1px solid var(--border);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    gap: 20px;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    z-index: 10;
 }
 
 .nymia-control-btn {
-    width: 48px;
-    height: 48px;
+    width: 70px !important;
+    height: 60px !important;
     border-radius: 50%;
-    background-color: var(--card);
-    border: 1px solid var(--border);
-    color: var(--foreground);
+    background: #2D3848;
+    border: none;
+    color: #ffffff;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 6px;
+    position: relative;
+}
+
+.nymia-control-btn span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.2px;
 }
 
 .nymia-control-btn:hover {
-    background-color: var(--muted);
+    background: #3A4252;
+    transform: scale(1.05);
 }
 
 .nymia-control-leave {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
+    background: #FF6B35;
+    color: #ffffff;
 }
 
 .nymia-control-leave:hover {
-    background-color: #9F2B1A;
+    background: #FF7E52;
+    transform: scale(1.05);
 }
 
 .nymia-control-btn svg {
-    width: 20px;
-    height: 20px;
+    width: 28px !important;
+    height: 28px !important;
 }
 
 /* Animations */
@@ -4405,7 +4479,8 @@ body {
     letter-spacing: -0.01em !important;
     line-height: 1.3 !important;
     white-space: nowrap !important;
-    margin-left: 0 !important;
+    margin-left: 70px !important;
+    margin-top: 10px !important;
     padding: 0 !important;
 }
 
@@ -4668,34 +4743,39 @@ body {
 /* PDF Grid */
 .nymia-pdf-grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 24px !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
 }
 
 /* PDF Card */
 .nymia-pdf-card {
     position: relative !important;
     background: #1E1E1E !important;
-    border-radius: 16px !important;
+    border-radius: 14px !important;
     overflow: hidden !important;
     cursor: pointer !important;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    opacity: 1 !important;
 }
 
 .nymia-pdf-card:hover {
-    transform: translateY(-8px) !important;
-    box-shadow: 0 16px 40px rgba(191, 76, 26, 0.25) !important;
-    border-color: rgba(191, 76, 26, 0.3) !important;
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 12px 32px rgba(191, 76, 26, 0.2) !important;
+    border-color: rgba(191, 76, 26, 0.4) !important;
 }
 
 /* PDF Cover */
 .nymia-pdf-cover {
     position: relative;
     width: 100%;
-    padding-bottom: 140%;
+    height: 0;
+    padding-bottom: 130%;
     background: linear-gradient(135deg, #2A2A2A 0%, #1A1A1A 100%);
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .nymia-pdf-cover img {
@@ -4705,12 +4785,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease, filter 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nymia-pdf-card:hover .nymia-pdf-cover img {
-    transform: scale(1.08);
-    filter: brightness(0.7);
+    transform: scale(1.05);
+    filter: brightness(0.75);
 }
 
 /* PDF Badge */
@@ -4747,40 +4827,47 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    background: rgba(191, 76, 26, 0.95);
-    backdrop-filter: blur(12px);
-    padding: 20px 32px;
-    border-radius: 16px;
+    gap: 6px;
+    background: rgba(191, 76, 26, 0.96);
+    backdrop-filter: blur(16px);
+    padding: 16px 28px;
+    border-radius: 12px;
     z-index: 3;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .nymia-pdf-card:hover .nymia-pdf-read-btn {
     opacity: 1;
     visibility: visible;
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .nymia-pdf-read-btn svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.nymia-pdf-card:hover .nymia-pdf-read-btn svg {
+    transform: scale(1.1);
 }
 
 .nymia-pdf-read-btn span {
     color: #ffffff;
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
 }
 
 /* PDF Info Overlay */
@@ -4791,13 +4878,13 @@ body {
     right: 0;
     display: flex;
     justify-content: space-between;
-    padding: 16px;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+    padding: 12px 14px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.88) 100%);
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(8px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nymia-pdf-card:hover .nymia-pdf-info-overlay {
@@ -4829,32 +4916,42 @@ body {
 
 /* PDF Details */
 .nymia-pdf-details {
-    padding: 20px;
+    padding: 14px 16px;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .nymia-pdf-title {
-    font-size: 1.0625rem;
+    font-size: 0.9375rem;
     font-weight: 700;
     color: #ffffff;
-    margin: 0 0 8px 0;
-    line-height: 1.4;
+    margin: 0 0 6px 0;
+    line-height: 1.35;
+    height: 40px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: color 0.3s ease;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nymia-pdf-card:hover .nymia-pdf-title {
-    color: #C7541A;
+    color: #E86339;
 }
 
 .nymia-pdf-author {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: #999;
     margin: 0;
     font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nymia-pdf-card:hover .nymia-pdf-author {
+    color: #BBB;
 }
 
 /* PDF Sidebar */
@@ -4951,6 +5048,387 @@ body {
 .nymia-pdf-downloads svg {
     width: 12px;
     height: 12px;
+}
+
+/* ========================================
+   SINGLE PDF READER PAGE
+======================================== */
+
+.nymia-single-pdf-page {
+    padding: 20px 24px;
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+}
+
+/* PDF Reader Header */
+.nymia-pdf-reader-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nymia-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nymia-back-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-4px);
+}
+
+.nymia-back-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.nymia-back-btn span {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.nymia-pdf-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.nymia-pdf-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.8125rem;
+}
+
+.nymia-pdf-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(191, 76, 26, 0.4);
+}
+
+.nymia-pdf-action-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* PDF Reader Layout */
+.nymia-pdf-reader-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+}
+
+/* PDF Viewer */
+.nymia-pdf-viewer {
+    background: #1E1E1E;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.nymia-pdf-preview {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+    margin-bottom: 12px;
+}
+
+.nymia-pdf-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 600px;
+    object-fit: contain;
+}
+
+.nymia-pdf-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nymia-pdf-preview:hover .nymia-pdf-overlay {
+    opacity: 1;
+}
+
+.nymia-read-fullscreen-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 28px;
+    background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nymia-read-fullscreen-btn:hover {
+    transform: scale(1.05);
+}
+
+.nymia-read-fullscreen-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.nymia-read-fullscreen-btn span {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* PDF Controls */
+.nymia-pdf-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+}
+
+.nymia-control-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.nymia-control-btn:hover {
+    background: rgba(191, 76, 26, 0.2);
+    border-color: #BF4C1A;
+}
+
+.nymia-control-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.nymia-page-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.nymia-current-page {
+    font-size: 1rem;
+    color: #BF4C1A;
+}
+
+.nymia-page-separator {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.nymia-total-pages {
+    font-size: 0.875rem;
+    color: #999;
+}
+
+/* PDF Info Sidebar */
+.nymia-pdf-info-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nymia-pdf-details-card {
+    background: linear-gradient(135deg, #1E1E1E 0%, #141414 100%);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nymia-pdf-main-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+.nymia-pdf-author-name {
+    font-size: 0.9375rem;
+    color: #999;
+    margin: 0 0 20px 0;
+    font-weight: 500;
+}
+
+.nymia-pdf-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+}
+
+.nymia-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 0.875rem;
+}
+
+.nymia-meta-item svg {
+    width: 16px;
+    height: 16px;
+    color: #BF4C1A;
+}
+
+.nymia-pdf-description {
+    margin-bottom: 18px;
+}
+
+.nymia-pdf-description h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+}
+
+.nymia-pdf-description p {
+    font-size: 0.875rem;
+    color: #BBB;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.nymia-premium-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    background: linear-gradient(135deg, #BF4C1A, #9F2B1A);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.nymia-premium-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(191, 76, 26, 0.4);
+}
+
+.nymia-premium-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Related PDFs */
+.nymia-related-pdfs {
+    background: linear-gradient(135deg, #1E1E1E 0%, #141414 100%);
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nymia-related-pdfs h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+}
+
+.nymia-related-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.nymia-related-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nymia-related-item:hover {
+    background: rgba(191, 76, 26, 0.1);
+    transform: translateX(4px);
+}
+
+.nymia-related-item img {
+    width: 50px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.nymia-related-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.nymia-related-info h4 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.nymia-related-info p {
+    font-size: 0.75rem;
+    color: #999;
+    margin: 0;
 }
 
 /* ========================================

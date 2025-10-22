@@ -77,18 +77,18 @@ get_sidebar();
                     <?php 
                     // Dummy data for PDF posts
                     $pdf_posts = array(
-                        array('title' => 'Digital Marketing Guide 2024', 'author' => 'Sarah Johnson', 'pages' => '156', 'size' => '12 MB', 'image' => 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&h=500&fit=crop', 'category' => 'recent'),
-                        array('title' => 'Photography Masterclass', 'author' => 'Mike Peterson', 'pages' => '243', 'size' => '28 MB', 'image' => 'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=500&fit=crop', 'category' => 'popular'),
-                        array('title' => 'Business Strategy Handbook', 'author' => 'Emily Chen', 'pages' => '198', 'size' => '15 MB', 'image' => 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=500&fit=crop', 'category' => 'recent'),
-                        array('title' => 'Modern Web Design', 'author' => 'David Brown', 'pages' => '312', 'size' => '42 MB', 'image' => 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=500&fit=crop', 'category' => 'popular'),
-                        array('title' => 'Financial Freedom Blueprint', 'author' => 'Amanda Davis', 'pages' => '178', 'size' => '11 MB', 'image' => 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=500&fit=crop', 'category' => 'categories'),
-                        array('title' => 'Healthy Living Guide', 'author' => 'Rachel Green', 'pages' => '224', 'size' => '18 MB', 'image' => 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=500&fit=crop', 'category' => 'recent'),
-                        array('title' => 'Creative Writing Essentials', 'author' => 'Lisa Anderson', 'pages' => '189', 'size' => '9 MB', 'image' => 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=500&fit=crop', 'category' => 'popular'),
-                        array('title' => 'Travel Photography Tips', 'author' => 'Monica Taylor', 'pages' => '267', 'size' => '35 MB', 'image' => 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=500&fit=crop', 'category' => 'categories'),
-                        array('title' => 'Coding for Beginners', 'author' => 'Sophie Brown', 'pages' => '342', 'size' => '21 MB', 'image' => 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=500&fit=crop', 'category' => 'recent'),
-                        array('title' => 'Entrepreneurship 101', 'author' => 'Emma Wilson', 'pages' => '298', 'size' => '16 MB', 'image' => 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=400&h=500&fit=crop', 'category' => 'popular'),
-                        array('title' => 'Yoga & Meditation Guide', 'author' => 'Olivia Moore', 'pages' => '156', 'size' => '14 MB', 'image' => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=500&fit=crop', 'category' => 'categories'),
-                        array('title' => 'Social Media Marketing', 'author' => 'Isabella Martin', 'pages' => '234', 'size' => '19 MB', 'image' => 'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=400&h=500&fit=crop', 'category' => 'recent'),
+                        array('id' => 1, 'title' => 'Digital Marketing Guide 2024', 'author' => 'Sarah Johnson', 'pages' => '156', 'size' => '12 MB', 'image' => 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=400&h=500&fit=crop', 'category' => 'recent'),
+                        array('id' => 2, 'title' => 'Photography Masterclass', 'author' => 'Mike Peterson', 'pages' => '243', 'size' => '28 MB', 'image' => 'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=500&fit=crop', 'category' => 'popular'),
+                        array('id' => 3, 'title' => 'Business Strategy Handbook', 'author' => 'Emily Chen', 'pages' => '198', 'size' => '15 MB', 'image' => 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=500&fit=crop', 'category' => 'recent'),
+                        array('id' => 4, 'title' => 'Modern Web Design', 'author' => 'David Brown', 'pages' => '312', 'size' => '42 MB', 'image' => 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=500&fit=crop', 'category' => 'popular'),
+                        array('id' => 5, 'title' => 'Financial Freedom Blueprint', 'author' => 'Amanda Davis', 'pages' => '178', 'size' => '11 MB', 'image' => 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=500&fit=crop', 'category' => 'categories'),
+                        array('id' => 6, 'title' => 'Healthy Living Guide', 'author' => 'Rachel Green', 'pages' => '224', 'size' => '18 MB', 'image' => 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=500&fit=crop', 'category' => 'recent'),
+                        array('id' => 7, 'title' => 'Creative Writing Essentials', 'author' => 'Lisa Anderson', 'pages' => '189', 'size' => '9 MB', 'image' => 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=500&fit=crop', 'category' => 'popular'),
+                        array('id' => 8, 'title' => 'Travel Photography Tips', 'author' => 'Monica Taylor', 'pages' => '267', 'size' => '35 MB', 'image' => 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=500&fit=crop', 'category' => 'categories'),
+                        array('id' => 9, 'title' => 'Coding for Beginners', 'author' => 'Sophie Brown', 'pages' => '342', 'size' => '21 MB', 'image' => 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=500&fit=crop', 'category' => 'recent'),
+                        array('id' => 10, 'title' => 'Entrepreneurship 101', 'author' => 'Emma Wilson', 'pages' => '298', 'size' => '16 MB', 'image' => 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=400&h=500&fit=crop', 'category' => 'popular'),
+                        array('id' => 11, 'title' => 'Yoga & Meditation Guide', 'author' => 'Olivia Moore', 'pages' => '156', 'size' => '14 MB', 'image' => 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=500&fit=crop', 'category' => 'categories'),
+                        array('id' => 12, 'title' => 'Social Media Marketing', 'author' => 'Isabella Martin', 'pages' => '234', 'size' => '19 MB', 'image' => 'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=400&h=500&fit=crop', 'category' => 'recent'),
                     );
                     
                     foreach ($pdf_posts as $pdf): ?>
@@ -106,13 +106,13 @@ get_sidebar();
                             </div>
                             
                             <!-- Read Button -->
-                            <div class="nymia-pdf-read-btn">
+                            <a href="<?php echo home_url('/single-pdf/?pdf=' . $pdf['id']); ?>" class="nymia-pdf-read-btn">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                                 </svg>
                                 <span>Read Now</span>
-                            </div>
+                            </a>
                             
                             <!-- Pages & Size Info -->
                             <div class="nymia-pdf-info-overlay">
