@@ -539,25 +539,31 @@ body {
 }
 
 .nymia-filter-btn {
-    padding: 6px 16px;
-    border-radius: 9999px;
+    padding: 10px 24px;
+    border-radius: 24px;
     font-size: 0.875rem;
-    font-weight: 500;
-    border: none;
+    font-weight: 600;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    transition: all 0.2s;
-    background-color: #161616;
+    transition: all 0.3s ease;
+    background: #161616;
     color: var(--foreground);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nymia-filter-btn:hover {
-    background-color: #C7541A;
+    background: linear-gradient(135deg, #E85A2A, #A63312);
     color: white;
+    border: 1.5px solid transparent;
+    box-shadow: 0 4px 12px rgba(232, 90, 42, 0.4);
+    transform: translateY(-2px);
 }
 
 .nymia-filter-btn.active {
-    background-color: #C7541A;
+    background: linear-gradient(135deg, #D14619, #8B2A0F);
     color: white;
+    border: 1.5px solid transparent;
+    box-shadow: 0 4px 12px rgba(209, 70, 25, 0.3);
 }
 
 .nymia-section {
@@ -578,6 +584,11 @@ body {
 
 .nymia-grid-3 {
     grid-template-columns: repeat(3, 1fr);
+}
+
+.nymia-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
 }
 
 .nymia-grid-5 {
@@ -609,6 +620,11 @@ body {
 .nymia-card-image.aspect-portrait {
     aspect-ratio: 3/4;
     border-radius: 16px;
+}
+
+.nymia-creator-card .nymia-card-image.aspect-portrait {
+    aspect-ratio: 3/2.5;
+    border-radius: 20px;
 }
 
 .nymia-card-image img {
@@ -669,6 +685,1010 @@ body {
 .nymia-card-info p {
     font-size: 0.75rem;
     color: var(--muted-foreground);
+}
+
+/* Single Audio Page Styles - Exact Image Match */
+.nymia-single-audio-page {
+    padding: 0;
+    margin: 0;
+    background-color: #121212;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-audio-player-header {
+    position: relative;
+    background: linear-gradient(135deg, #330000 0%, #440000 30%, #550000 70%, #660000 100%);
+    padding: 50px 40px;
+    margin-bottom: 0;
+    overflow: hidden;
+    min-height: 40vh;
+}
+
+.nymia-audio-player-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(51, 0, 0, 0.95) 0%, rgba(68, 0, 0, 0.9) 30%, rgba(85, 0, 0, 0.8) 70%, rgba(102, 0, 0, 0.7) 100%);
+    z-index: 1;
+}
+
+.nymia-audio-player-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nymia-audio-creator-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.nymia-audio-creator-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nymia-dummy-creator-icon {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FF4500 0%, #FF6347 30%, #FF0000 70%, #CC0000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    position: relative;
+}
+
+.nymia-dummy-creator-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 69, 0, 0.9) 0%, rgba(255, 99, 71, 0.7) 30%, rgba(255, 0, 0, 0.9) 70%, rgba(204, 0, 0, 0.8) 100%);
+    border-radius: 12px;
+}
+
+.nymia-dummy-creator-icon svg {
+    width: 80px;
+    height: 80px;
+    color: #ffffff;
+    opacity: 0.9;
+    z-index: 1;
+    position: relative;
+}
+
+.nymia-audio-creator-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.nymia-audio-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-audio-creator-name {
+    font-size: 18px;
+    color: #ffffff;
+    margin: 0;
+    opacity: 0.9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-follow-btn {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-follow-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nymia-audio-stats {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.nymia-stats-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-stats-label {
+    font-size: 18px;
+    color: #ffffff;
+    opacity: 0.9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-audio-track-list {
+    background-color: #121212;
+    padding: 40px;
+    min-height: 60vh;
+}
+
+/* Audio Player Controls */
+.nymia-audio-player-controls {
+    background-color: #1a1a1a;
+    padding: 20px 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: sticky;
+    bottom: 0;
+    z-index: 100;
+}
+
+.nymia-player-main-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.nymia-player-btn {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nymia-player-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.nymia-player-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.nymia-main-play-btn {
+    background-color: #ffffff;
+    color: #000000;
+    width: 50px;
+    height: 50px;
+}
+
+.nymia-main-play-btn:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+}
+
+.nymia-main-play-btn svg {
+    width: 28px;
+    height: 28px;
+}
+
+.nymia-player-progress-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nymia-current-track-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nymia-current-track-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-current-track-artist {
+    font-size: 12px;
+    color: #999999;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-player-progress-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nymia-current-time,
+.nymia-total-time {
+    font-size: 12px;
+    color: #999999;
+    min-width: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-player-progress-bar {
+    flex: 1;
+    height: 4px;
+    background-color: #333333;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.nymia-player-progress-fill {
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.nymia-player-volume-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.nymia-volume-slider-container {
+    width: 80px;
+}
+
+.nymia-volume-slider {
+    width: 100%;
+    height: 4px;
+    background-color: #333333;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.nymia-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nymia-volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.nymia-audio-track-item {
+    display: grid;
+    grid-template-columns: 40px 70px 1fr auto auto;
+    gap: 25px;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+.nymia-audio-track-item:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 -20px;
+}
+
+.nymia-audio-track-item.playing {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 -20px;
+}
+
+.nymia-audio-track-item.playing .nymia-play-btn {
+    background-color: #FF4444;
+}
+
+.nymia-audio-track-item.playing .nymia-play-btn .play-icon {
+    display: none;
+}
+
+.nymia-audio-track-item.playing .nymia-play-btn .pause-icon {
+    display: block;
+}
+
+.nymia-audio-track-item:last-child {
+    border-bottom: none;
+}
+
+.nymia-track-number {
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-track-thumbnail {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.nymia-track-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nymia-dummy-track-icon {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #8B0000 0%, #A52A2A 50%, #8B0000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nymia-dummy-track-icon::before {
+    content: 'MUSIC';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 2;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.nymia-dummy-track-icon::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+}
+
+.nymia-dummy-track-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
+    opacity: 0.9;
+    z-index: 1;
+    position: relative;
+    margin-top: 10px;
+}
+
+.nymia-track-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nymia-track-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-track-artist {
+    font-size: 18px;
+    color: #ffffff;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-track-date {
+    font-size: 18px;
+    color: #ffffff;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-track-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.nymia-clock-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nymia-clock-icon svg {
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+}
+
+.nymia-track-progress {
+    display: flex;
+    align-items: center;
+}
+
+.nymia-progress-bar {
+    width: 80px;
+    height: 3px;
+    background-color: #333333;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nymia-progress-fill {
+    height: 100%;
+    background-color: #666666;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.nymia-progress-time {
+    font-size: 16px;
+    color: #ffffff;
+    min-width: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nymia-play-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nymia-play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.nymia-play-btn svg {
+    width: 20px;
+    height: 20px;
+    color: #000000;
+    margin-left: 2px;
+}
+
+.nymia-track-duration {
+    font-size: 16px;
+    color: #ffffff;
+    min-width: 25px;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Responsive styles for single audio page */
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .nymia-audio-player-header {
+        padding: 45px 30px;
+    }
+    
+    .nymia-audio-player-content {
+        gap: 35px;
+    }
+    
+    .nymia-audio-creator-image {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .nymia-audio-title {
+        font-size: 42px;
+    }
+    
+    .nymia-audio-track-list {
+        padding: 35px;
+    }
+    
+    .nymia-audio-track-item {
+        grid-template-columns: 35px 60px 1fr auto auto;
+        gap: 20px;
+        padding: 18px 0;
+    }
+    
+    .nymia-track-thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .nymia-track-title {
+        font-size: 20px;
+    }
+    
+    .nymia-track-artist {
+        font-size: 16px;
+    }
+    
+    .nymia-track-date {
+        font-size: 16px;
+    }
+    
+    .nymia-play-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .nymia-play-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .nymia-audio-player-header {
+        padding: 30px 20px;
+        min-height: 35vh;
+    }
+    
+    .nymia-audio-player-content {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+    
+    .nymia-audio-creator-image {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+    }
+    
+    .nymia-audio-title {
+        font-size: 32px;
+    }
+    
+    .nymia-audio-creator-name {
+        font-size: 16px;
+    }
+    
+    .nymia-audio-stats {
+        order: -1;
+    }
+    
+    .nymia-stats-number {
+        font-size: 32px;
+    }
+    
+    .nymia-stats-label {
+        font-size: 16px;
+    }
+    
+    .nymia-audio-track-list {
+        padding: 20px;
+    }
+    
+    .nymia-audio-track-item {
+        grid-template-columns: 30px 55px 1fr auto;
+        gap: 15px;
+        padding: 15px 0;
+    }
+    
+    .nymia-track-number {
+        font-size: 16px;
+    }
+    
+    .nymia-track-thumbnail {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .nymia-dummy-track-icon::before {
+        font-size: 8px;
+        top: 6px;
+    }
+    
+    .nymia-dummy-track-icon svg {
+        width: 20px;
+        height: 20px;
+        margin-top: 8px;
+    }
+    
+    .nymia-track-title {
+        font-size: 18px;
+    }
+    
+    .nymia-track-artist {
+        font-size: 15px;
+    }
+    
+    .nymia-track-date {
+        font-size: 15px;
+    }
+    
+    .nymia-track-controls {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-end;
+    }
+    
+    .nymia-clock-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .nymia-progress-bar {
+        width: 60px;
+        height: 2px;
+    }
+    
+    .nymia-progress-time {
+        font-size: 14px;
+        min-width: 20px;
+    }
+    
+    .nymia-play-btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .nymia-play-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .nymia-track-duration {
+        font-size: 14px;
+        min-width: 20px;
+    }
+    
+    /* Audio Player Responsive */
+    .nymia-audio-player-controls {
+        padding: 15px 20px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .nymia-player-main-controls {
+        gap: 8px;
+    }
+    
+    .nymia-main-play-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .nymia-main-play-btn svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .nymia-player-progress-section {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .nymia-current-track-title {
+        font-size: 14px;
+    }
+    
+    .nymia-current-track-artist {
+        font-size: 12px;
+    }
+    
+    .nymia-player-progress-container {
+        gap: 8px;
+    }
+    
+    .nymia-current-time,
+    .nymia-total-time {
+        font-size: 12px;
+        min-width: 25px;
+    }
+    
+    .nymia-volume-slider-container {
+        width: 50px;
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+    .nymia-audio-player-header {
+        padding: 25px 15px;
+        min-height: 30vh;
+    }
+    
+    .nymia-audio-creator-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .nymia-audio-title {
+        font-size: 28px;
+    }
+    
+    .nymia-audio-creator-name {
+        font-size: 14px;
+    }
+    
+    .nymia-stats-number {
+        font-size: 28px;
+    }
+    
+    .nymia-stats-label {
+        font-size: 14px;
+    }
+    
+    .nymia-audio-track-list {
+        padding: 15px;
+    }
+    
+    .nymia-audio-track-item {
+        grid-template-columns: 25px 45px 1fr auto;
+        gap: 12px;
+        padding: 12px 0;
+    }
+    
+    .nymia-track-number {
+        font-size: 14px;
+    }
+    
+    .nymia-track-thumbnail {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .nymia-dummy-track-icon::before {
+        font-size: 7px;
+        top: 5px;
+    }
+    
+    .nymia-dummy-track-icon svg {
+        width: 16px;
+        height: 16px;
+        margin-top: 6px;
+    }
+    
+    .nymia-track-title {
+        font-size: 16px;
+    }
+    
+    .nymia-track-artist {
+        font-size: 13px;
+    }
+    
+    .nymia-track-date {
+        font-size: 13px;
+    }
+    
+    .nymia-track-controls {
+        gap: 6px;
+    }
+    
+    .nymia-clock-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .nymia-progress-bar {
+        width: 50px;
+        height: 2px;
+    }
+    
+    .nymia-progress-time {
+        font-size: 12px;
+        min-width: 18px;
+    }
+    
+    .nymia-play-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .nymia-play-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .nymia-track-duration {
+        font-size: 12px;
+        min-width: 18px;
+    }
+    
+    /* Audio Player Responsive */
+    .nymia-audio-player-controls {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+    
+    .nymia-player-main-controls {
+        gap: 6px;
+    }
+    
+    .nymia-main-play-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nymia-main-play-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .nymia-current-track-title {
+        font-size: 13px;
+    }
+    
+    .nymia-current-track-artist {
+        font-size: 11px;
+    }
+    
+    .nymia-current-time,
+    .nymia-total-time {
+        font-size: 11px;
+        min-width: 20px;
+    }
+    
+    .nymia-volume-slider-container {
+        width: 40px;
+    }
+}
+
+/* Section Headers */
+.nymia-section-header {
+    margin-bottom: 24px;
+}
+
+.nymia-section-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin: 0 0 8px 0;
+}
+
+.nymia-section-subtitle {
+    font-size: 1rem;
+    color: var(--muted-foreground);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Erotic Audio Creator Card Styles */
+.nymia-creator-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px !important;
+    transition: transform 0.3s ease;
+}
+
+.nymia-creator-card:hover {
+    transform: translateY(-4px);
+}
+
+.nymia-creator-card .nymia-card-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.nymia-creator-card .nymia-card-image img {
+    border-radius: 20px;
+}
+
+.nymia-creator-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 40%, transparent 100%);
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 20px 20px;
+}
+
+.nymia-creator-card:hover .nymia-creator-overlay {
+    opacity: 1 !important;
+}
+
+.nymia-creator-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nymia-creator-avatar {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+}
+
+.nymia-creator-name {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: -0.01em;
+}
+
+.nymia-creator-views {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #ffffff;
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.nymia-creator-views svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.95;
 }
 
 /* Sidebar Styles */
@@ -786,8 +1806,54 @@ body {
 /* Tablet Styles */
 @media (max-width: 1024px) {
     /* Layout adjustments */
+    .nymia-grid-4,
     .nymia-grid-5 {
         grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .nymia-grid-4 {
+        gap: 16px;
+    }
+    
+    .nymia-creator-card {
+        border-radius: 16px !important;
+    }
+    
+    .nymia-creator-card .nymia-card-image,
+    .nymia-creator-card .nymia-card-image img {
+        border-radius: 16px;
+    }
+    
+    .nymia-creator-card .nymia-card-image.aspect-portrait {
+        aspect-ratio: 3/3;
+    }
+    
+    .nymia-creator-overlay {
+        padding: 12px 14px;
+        border-radius: 0 0 16px 16px;
+    }
+    
+    .nymia-creator-info {
+        gap: 8px;
+    }
+    
+    .nymia-creator-avatar {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .nymia-creator-name {
+        font-size: 0.875rem;
+    }
+    
+    .nymia-creator-views {
+        font-size: 0.8125rem;
+        gap: 5px;
+    }
+    
+    .nymia-creator-views svg {
+        width: 16px;
+        height: 16px;
     }
 
     .nymia-sidebar-right {
@@ -908,8 +1974,55 @@ body {
     }
 
     .nymia-grid-3,
+    .nymia-grid-4,
     .nymia-grid-5 {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .nymia-grid-4 {
+        gap: 14px;
+    }
+    
+    .nymia-creator-card {
+        border-radius: 14px !important;
+    }
+    
+    .nymia-creator-card .nymia-card-image,
+    .nymia-creator-card .nymia-card-image img {
+        border-radius: 14px;
+    }
+    
+    .nymia-creator-card .nymia-card-image.aspect-portrait {
+        aspect-ratio: 3/3.2;
+    }
+    
+    .nymia-creator-overlay {
+        padding: 10px 12px;
+        border-radius: 0 0 14px 14px;
+    }
+    
+    .nymia-creator-info {
+        gap: 6px;
+    }
+    
+    .nymia-creator-avatar {
+        width: 28px !important;
+        height: 28px !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .nymia-creator-name {
+        font-size: 0.8125rem;
+    }
+    
+    .nymia-creator-views {
+        font-size: 0.6875rem;
+        gap: 4px;
+    }
+    
+    .nymia-creator-views svg {
+        width: 13px;
+        height: 13px;
     }
 
     /* Header - Mobile */
@@ -1791,8 +2904,88 @@ body {
     }
 
     .nymia-grid-3,
+    .nymia-grid-4,
     .nymia-grid-5 {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .nymia-creator-card {
+        border-radius: 12px !important;
+    }
+    
+    .nymia-creator-card .nymia-card-image,
+    .nymia-creator-card .nymia-card-image img {
+        border-radius: 12px;
+    }
+    
+    .nymia-creator-card .nymia-card-image.aspect-portrait {
+        aspect-ratio: 3/3.2;
+    }
+    
+    .nymia-creator-overlay {
+        padding: 8px 10px;
+        border-radius: 0 0 12px 12px;
+    }
+    
+    .nymia-creator-info {
+        gap: 5px;
+    }
+    
+    .nymia-creator-avatar {
+        width: 26px !important;
+        height: 26px !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .nymia-creator-name {
+        font-size: 0.8125rem;
+    }
+    
+    .nymia-creator-views {
+        font-size: 0.6875rem;
+        gap: 4px;
+    }
+    
+    .nymia-creator-views svg {
+        width: 13px;
+        height: 13px;
+    }
+    
+    /* Regular content cards on small mobile */
+    .nymia-content-card {
+        margin-bottom: 0;
+        
+    }
+    
+    .nymia-card-image {
+        margin-bottom: 8px;
+    }
+    
+    .nymia-card-info .nymia-avatar {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .nymia-card-info h4 {
+        font-size: 0.8125rem;
+    }
+    
+    .nymia-card-info p {
+        font-size: 0.6875rem;
+    }
+    
+    .nymia-card-badge {
+        padding: 3px 6px;
+        font-size: 0.625rem;
+    }
+    
+    .nymia-card-image.aspect-video {
+        border-radius: 10px;
+    }
+    
+    .nymia-card-image.aspect-portrait {
+        border-radius: 12px;
     }
 
     .nymia-search {
@@ -5459,6 +6652,11 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
     
+    .nymia-pdf-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 18px !important;
+    }
+    
     .nymia-suggestions-sidebar,
     .nymia-trending-sidebar {
         position: static;
@@ -5553,6 +6751,11 @@ body {
         gap: 16px;
     }
     
+    .nymia-pdf-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+    }
+    
     .nymia-suggestions-sidebar,
     .nymia-trending-sidebar {
         padding: 20px;
@@ -5617,7 +6820,211 @@ body {
     
     .nymia-live-audio-grid,
     .nymia-audio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .nymia-pdf-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    /* Audio Page - Ensure 2 columns on phone */
+    .nymia-audio-page .nymia-grid-4,
+    .nymia-audio-layout .nymia-grid-4,
+    .nymia-audio-page .nymia-grid,
+    .nymia-audio-layout .nymia-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        
+    }
+    
+    .nymia-audio-card .nymia-card-image.aspect-portrait {
+        aspect-ratio: 3/3.2 !important;
+    }
+    
+    /* Ensure audio cards are properly sized on mobile */
+    .nymia-audio-page .nymia-content-card,
+    .nymia-audio-layout .nymia-content-card {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .nymia-audio-page .nymia-card-image,
+    .nymia-audio-layout .nymia-card-image {
+        width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Single Audio Page Mobile Styles */
+    .nymia-audio-player-header {
+        padding: 24px 16px;
+    }
+    
+    .nymia-audio-player-content {
         grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+    }
+    
+    .nymia-audio-creator-image {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    
+    .nymia-audio-title {
+        font-size: 2rem;
+    }
+    
+    .nymia-audio-creator-name {
+        font-size: 1.125rem;
+    }
+    
+    .nymia-stats-number {
+        font-size: 1.75rem;
+    }
+    
+    .nymia-audio-track-list {
+        padding: 16px;
+    }
+    
+    .nymia-audio-track-item {
+        grid-template-columns: 30px 50px 1fr;
+        gap: 12px;
+        padding: 12px 0;
+    }
+    
+    .nymia-track-thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .nymia-track-date,
+    .nymia-track-controls {
+        display: none;
+    }
+    
+    .nymia-track-title {
+        font-size: 0.875rem;
+    }
+    
+    .nymia-track-artist {
+        font-size: 0.75rem;
+    }
+    
+    .nymia-audio-header {
+        padding: 0 16px;
+    }
+    
+    .nymia-audio-main-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .nymia-audio-subtitle {
+        font-size: 0.875rem !important;
+    }
+    
+    .nymia-filter-tabs {
+        padding: 0 16px;
+        overflow-x: auto;
+        gap: 8px;
+    }
+    
+    .nymia-filter-tab {
+        padding: 8px 16px !important;
+        font-size: 0.75rem !important;
+        flex-shrink: 0;
+    }
+    
+    .nymia-filter-tab svg {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .nymia-audio-layout {
+        grid-template-columns: 1fr !important;
+        gap: 24px;
+    }
+    
+    .nymia-trending-sidebar {
+        padding: 16px;
+        border-radius: 12px;
+    }
+    
+    .nymia-trending-title {
+        font-size: 1.125rem;
+    }
+    
+    .nymia-trending-item {
+        padding: 10px;
+    }
+    
+    .nymia-trending-rank {
+        font-size: 0.875rem;
+        min-width: 24px;
+    }
+    
+    .nymia-trending-cover {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .nymia-trending-song {
+        font-size: 0.8125rem;
+    }
+    
+    .nymia-trending-artist {
+        font-size: 0.6875rem;
+    }
+    
+    .nymia-trending-plays {
+        font-size: 0.625rem;
+    }
+    
+    .nymia-pdf-card {
+        border-radius: 12px !important;
+    }
+    
+    .nymia-pdf-cover {
+        height: 180px !important;
+    }
+    
+    .nymia-pdf-details {
+        padding: 10px !important;
+    }
+    
+    .nymia-pdf-title {
+        font-size: 0.8125rem !important;
+    }
+    
+    .nymia-pdf-author {
+        font-size: 0.6875rem !important;
+    }
+    
+    .nymia-pdf-meta span {
+        font-size: 0.625rem !important;
+    }
+    
+    .nymia-pdf-read-btn {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .nymia-pdf-read-btn svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+    
+    /* Audio Page - Ensure 2 columns on phone */
+    .nymia-audio-page .nymia-grid-4,
+    .nymia-audio-layout .nymia-grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .nymia-audio-card .nymia-card-image.aspect-portrait {
+        aspect-ratio: 3/3.2 !important;
     }
     
     .nymia-live-audio-avatar {

@@ -60,50 +60,43 @@ get_header(); ?>
             <!-- Content Layout -->
             <div class="nymia-audio-layout">
                 <!-- Main Grid Content -->
-                <div class="nymia-audio-grid">
-                    <?php 
-                    // Dummy data for audio posts
-                    $audio_posts = array(
-                        array('name' => 'Kimberly', 'views' => '1.2k', 'image' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Sarah Johnson', 'views' => '2.5k', 'image' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Emily Chen', 'views' => '856', 'image' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop', 'category' => 'new'),
-                        array('name' => 'Jessica Miller', 'views' => '3.1k', 'image' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop', 'category' => 'popular'),
-                        array('name' => 'Amanda Davis', 'views' => '1.8k', 'image' => 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Rachel Green', 'views' => '945', 'image' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop', 'category' => 'new'),
-                        array('name' => 'Lisa Anderson', 'views' => '2.2k', 'image' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop', 'category' => 'popular'),
-                        array('name' => 'Monica Taylor', 'views' => '1.5k', 'image' => 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Sophie Brown', 'views' => '678', 'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop', 'category' => 'new'),
-                        array('name' => 'Emma Wilson', 'views' => '3.4k', 'image' => 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop', 'category' => 'popular'),
-                        array('name' => 'Olivia Moore', 'views' => '1.9k', 'image' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop', 'category' => 'trending'),
-                        array('name' => 'Isabella Martin', 'views' => '2.7k', 'image' => 'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400&h=500&fit=crop', 'profile_image' => 'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=100&h=100&fit=crop', 'category' => 'new'),
-                    );
-                    
-                    foreach ($audio_posts as $audio): ?>
-                    <div class="nymia-audio-card" data-category="<?php echo esc_attr($audio['category']); ?>">
-                        
-                        <div class="nymia-audio-thumbnail">
-                            <img src="<?php echo esc_url($audio['image']); ?>" alt="<?php echo esc_attr($audio['name']); ?>" />
-                            
-                            <!-- User Info Overlay -->
-                            <div class="nymia-audio-user">
-                                <div class="nymia-audio-avatar">
-                                    <img src="<?php echo esc_url($audio['profile_image']); ?>" alt="<?php echo esc_attr($audio['name']); ?>" />
-                                    <span class="nymia-audio-name"><?php echo esc_html($audio['name']); ?></span>
-                                </div>
+                <div class="nymia-grid nymia-grid-4">
+            <?php 
+            // Dummy data for erotic audio creators
+            $erotic_creators = array(
+                array('name' => 'Kimberly', 'avatar' => 'https://i.pravatar.cc/150?img=1', 'image' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop', 'views' => '1.2k'),
+                array('name' => 'Sophia', 'avatar' => 'https://i.pravatar.cc/150?img=5', 'image' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=800&fit=crop', 'views' => '2.5k'),
+                array('name' => 'Emma', 'avatar' => 'https://i.pravatar.cc/150?img=9', 'image' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=800&fit=crop', 'views' => '1.8k'),
+                array('name' => 'Isabella', 'avatar' => 'https://i.pravatar.cc/150?img=10', 'image' => 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=600&h=800&fit=crop', 'views' => '3.1k'),
+                array('name' => 'Olivia', 'avatar' => 'https://i.pravatar.cc/150?img=16', 'image' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&h=800&fit=crop', 'views' => '950'),
+                array('name' => 'Ava', 'avatar' => 'https://i.pravatar.cc/150?img=20', 'image' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop', 'views' => '2.2k'),
+                array('name' => 'Mia', 'avatar' => 'https://i.pravatar.cc/150?img=24', 'image' => 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=800&fit=crop', 'views' => '1.6k'),
+                array('name' => 'Charlotte', 'avatar' => 'https://i.pravatar.cc/150?img=27', 'image' => 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=800&fit=crop', 'views' => '2.9k'),
+                array('name' => 'Amelia', 'avatar' => 'https://i.pravatar.cc/150?img=32', 'image' => 'https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=600&h=800&fit=crop', 'views' => '1.4k'),
+                array('name' => 'Harper', 'avatar' => 'https://i.pravatar.cc/150?img=36', 'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop', 'views' => '3.5k'),
+                array('name' => 'Evelyn', 'avatar' => 'https://i.pravatar.cc/150?img=38', 'image' => 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=600&h=800&fit=crop', 'views' => '1.9k'),
+                array('name' => 'Abigail', 'avatar' => 'https://i.pravatar.cc/150?img=41', 'image' => 'https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?w=600&h=800&fit=crop', 'views' => '2.7k'),
+            );
+            foreach ($erotic_creators as $creator): ?>
+                <div class="nymia-content-card nymia-creator-card">
+                    <div class="nymia-card-image aspect-portrait">
+                        <img src="<?php echo esc_url($creator['image']); ?>" alt="<?php echo esc_attr($creator['name']); ?>" />
+                        <div class="nymia-card-overlay nymia-creator-overlay">
+                            <div class="nymia-creator-info">
+                                <img src="<?php echo esc_url($creator['avatar']); ?>" alt="<?php echo esc_attr($creator['name']); ?>" class="nymia-creator-avatar" />
+                                <span class="nymia-creator-name"><?php echo esc_html($creator['name']); ?></span>
                             </div>
-
-                            <!-- Views Counter -->
-                            <div class="nymia-audio-views">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
+                            <div class="nymia-creator-views">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                                 </svg>
-                                <span><?php echo esc_html($audio['views']); ?></span>
+                                <span><?php echo esc_html($creator['views']); ?></span>
                             </div>
                         </div>
                     </div>
-                    <?php endforeach; ?>
                 </div>
+            <?php endforeach; ?>
+        </div>
 
                 <!-- Trending Sidebar -->
                 <aside class="nymia-trending-sidebar">
