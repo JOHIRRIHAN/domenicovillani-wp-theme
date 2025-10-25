@@ -104,20 +104,20 @@ $filter_buttons = array('All', 'Live Audio', 'PDF', 'Erotic Audio Creator');
         </div>
         <div class="nymia-grid nymia-grid-4">
             <?php 
-            // Dummy data for erotic audio creators
+            // Enhanced data for erotic audio creators with categories and ratings
             $erotic_creators = array(
-                array('name' => 'Kimberly', 'avatar' => 'https://i.pravatar.cc/150?img=1', 'image' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop', 'views' => '1.2k'),
-                array('name' => 'Sophia', 'avatar' => 'https://i.pravatar.cc/150?img=5', 'image' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=800&fit=crop', 'views' => '2.5k'),
-                array('name' => 'Emma', 'avatar' => 'https://i.pravatar.cc/150?img=9', 'image' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=800&fit=crop', 'views' => '1.8k'),
-                array('name' => 'Isabella', 'avatar' => 'https://i.pravatar.cc/150?img=10', 'image' => 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=600&h=800&fit=crop', 'views' => '3.1k'),
-                array('name' => 'Olivia', 'avatar' => 'https://i.pravatar.cc/150?img=16', 'image' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&h=800&fit=crop', 'views' => '950'),
-                array('name' => 'Ava', 'avatar' => 'https://i.pravatar.cc/150?img=20', 'image' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop', 'views' => '2.2k'),
-                array('name' => 'Mia', 'avatar' => 'https://i.pravatar.cc/150?img=24', 'image' => 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=800&fit=crop', 'views' => '1.6k'),
-                array('name' => 'Charlotte', 'avatar' => 'https://i.pravatar.cc/150?img=27', 'image' => 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=800&fit=crop', 'views' => '2.9k'),
-                array('name' => 'Amelia', 'avatar' => 'https://i.pravatar.cc/150?img=32', 'image' => 'https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=600&h=800&fit=crop', 'views' => '1.4k'),
-                array('name' => 'Harper', 'avatar' => 'https://i.pravatar.cc/150?img=36', 'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop', 'views' => '3.5k'),
-                array('name' => 'Evelyn', 'avatar' => 'https://i.pravatar.cc/150?img=38', 'image' => 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=600&h=800&fit=crop', 'views' => '1.9k'),
-                array('name' => 'Abigail', 'avatar' => 'https://i.pravatar.cc/150?img=41', 'image' => 'https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?w=600&h=800&fit=crop', 'views' => '2.7k'),
+                array('name' => 'Kimberly', 'avatar' => 'https://i.pravatar.cc/150?img=1', 'image' => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop', 'views' => '1.2k', 'rating' => 4.2, 'category' => 'Cooking', 'subcategory' => 'Quick Recipes'),
+                array('name' => 'Sophia', 'avatar' => 'https://i.pravatar.cc/150?img=5', 'image' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=800&fit=crop', 'views' => '2.5k', 'rating' => 4.7, 'category' => 'Gardening', 'subcategory' => 'Indoor Plants'),
+                array('name' => 'Emma', 'avatar' => 'https://i.pravatar.cc/150?img=9', 'image' => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&h=800&fit=crop', 'views' => '1.8k', 'rating' => 4.3, 'category' => 'Sports', 'subcategory' => 'Fitness'),
+                array('name' => 'Isabella', 'avatar' => 'https://i.pravatar.cc/150?img=10', 'image' => 'https://images.unsplash.com/photo-1488716820095-cbe80883c496?w=600&h=800&fit=crop', 'views' => '3.1k', 'rating' => 4.8, 'category' => 'Music', 'subcategory' => 'Piano Lessons'),
+                array('name' => 'Olivia', 'avatar' => 'https://i.pravatar.cc/150?img=16', 'image' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&h=800&fit=crop', 'views' => '950', 'rating' => 4.0, 'category' => 'Art', 'subcategory' => 'Painting'),
+                array('name' => 'Ava', 'avatar' => 'https://i.pravatar.cc/150?img=20', 'image' => 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop', 'views' => '2.2k', 'rating' => 4.5, 'category' => 'Technology', 'subcategory' => 'Programming'),
+                array('name' => 'Mia', 'avatar' => 'https://i.pravatar.cc/150?img=24', 'image' => 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=800&fit=crop', 'views' => '1.6k', 'rating' => 4.1, 'category' => 'Lifestyle', 'subcategory' => 'Meditation'),
+                array('name' => 'Charlotte', 'avatar' => 'https://i.pravatar.cc/150?img=27', 'image' => 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=800&fit=crop', 'views' => '2.9k', 'rating' => 4.6, 'category' => 'Education', 'subcategory' => 'Language Learning'),
+                array('name' => 'Amelia', 'avatar' => 'https://i.pravatar.cc/150?img=32', 'image' => 'https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?w=600&h=800&fit=crop', 'views' => '1.4k', 'rating' => 4.4, 'category' => 'Cooking', 'subcategory' => 'Healthy Meals'),
+                array('name' => 'Harper', 'avatar' => 'https://i.pravatar.cc/150?img=36', 'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop', 'views' => '3.5k', 'rating' => 4.9, 'category' => 'Music', 'subcategory' => 'Voice Training'),
+                array('name' => 'Evelyn', 'avatar' => 'https://i.pravatar.cc/150?img=38', 'image' => 'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=600&h=800&fit=crop', 'views' => '1.9k', 'rating' => 4.2, 'category' => 'Sports', 'subcategory' => 'Yoga'),
+                array('name' => 'Abigail', 'avatar' => 'https://i.pravatar.cc/150?img=41', 'image' => 'https://images.unsplash.com/photo-1503185912284-5271ff81b9a8?w=600&h=800&fit=crop', 'views' => '2.7k', 'rating' => 4.3, 'category' => 'Art', 'subcategory' => 'Digital Art'),
             );
             foreach ($erotic_creators as $creator): ?>
                 <div class="nymia-content-card nymia-creator-card">
@@ -126,7 +126,23 @@ $filter_buttons = array('All', 'Live Audio', 'PDF', 'Erotic Audio Creator');
                         <div class="nymia-card-overlay nymia-creator-overlay">
                             <div class="nymia-creator-info">
                                 <img src="<?php echo esc_url($creator['avatar']); ?>" alt="<?php echo esc_attr($creator['name']); ?>" class="nymia-creator-avatar" />
-                                <span class="nymia-creator-name"><?php echo esc_html($creator['name']); ?></span>
+                                <div class="nymia-creator-details">
+                                    <span class="nymia-creator-name"><?php echo esc_html($creator['name']); ?></span>
+                                    <div class="nymia-creator-rating">
+                                        <div class="nymia-star-rating">
+                                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                                <svg class="nymia-star <?php echo $i <= floor($creator['rating']) ? 'filled' : ''; ?>" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                                </svg>
+                                            <?php endfor; ?>
+                                        </div>
+                                        <span class="nymia-rating-score">(<?php echo $creator['rating']; ?>)</span>
+                                    </div>
+                                    <div class="nymia-creator-category">
+                                        <span class="nymia-category-tag"><?php echo esc_html($creator['category']); ?></span>
+                                        <span class="nymia-subcategory-tag"><?php echo esc_html($creator['subcategory']); ?></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="nymia-creator-views">
                                 <svg viewBox="0 0 24 24" fill="currentColor">

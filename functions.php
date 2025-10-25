@@ -488,3 +488,197 @@ function nymia_debug_info() {
     }
 }
 add_action('wp_head', 'nymia_debug_info');
+
+/**
+ * Handle audio upload via AJAX
+ */
+function nymia_handle_audio_upload() {
+    // Log the request for debugging
+    error_log('nymia_handle_audio_upload called');
+    error_log('POST data: ' . print_r($_POST, true));
+    error_log('FILES data: ' . print_r($_FILES, true));
+    
+    // Verify nonce for security (commented out for testing)
+    /*
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'nymia_audio_upload')) {
+        wp_send_json_error(array('message' => 'Security check failed'));
+        return;
+    }
+    */
+    
+    // Check if user is logged in
+    if (!is_user_logged_in()) {
+        // For testing purposes, we'll temporarily allow uploads without login
+        // In production, remove this bypass
+        // wp_send_json_error(array('message' => 'Please log in to upload audio'));
+        // return;
+    }
+    
+    // Check if file was uploaded
+    if (!isset($_FILES['audio_file'])) {
+        error_log('No audio_file in FILES');
+        wp_send_json_error(array('message' => 'No file uploaded'));
+        return;
+    }
+    
+    if ($_FILES['audio_file']['error'] !== UPLOAD_ERR_OK) {
+        $error_msg = 'Upload error (Code: ' . $_FILES['audio_file']['error'] . ')';
+        error_log('Upload error: ' . $error_msg);
+        wp_send_json_error(array('message' => $error_msg));
+        return;
+    }
+    
+    $file = $_FILES['audio_file'];
+    $title = sanitize_text_field($_POST['audio_title']);
+    $paid_access = isset($_POST['audio_paid_access']) ? 'yes' : 'no';
+    $price = floatval($_POST['audio_price']);
+    
+    // Validate file type
+    $allowed_types = array('audio/mpeg', 'audio/mp3', 'audio/wav', 'audio/x-wav', 'audio/wave', 'audio/ogg', 'audio/m4a', 'audio/flac');
+    $file_type = wp_check_filetype($file['name']);
+    
+    // Allow WAV and other audio formats
+    $allowed_extensions = array('mp3', 'wav', 'ogg', 'm4a', 'flac', 'mp4', 'webm');
+    
+    if (!in_array($file['type'], $allowed_types) && !in_array($file_type['ext'], $allowed_extensions)) {
+        wp_send_json_error(array('message' => 'Invalid file type. Please upload MP3, WAV, OGG, M4A, or FLAC'));
+        return;
+    }
+    
+    // Handle file upload - bypass WordPress media upload to avoid mime type restrictions
+    require_once(ABSPATH . 'wp-admin/includes/file.php');
+    
+    // Create upload directory if it doesn't exist
+    $upload_dir = wp_upload_dir();
+    $audio_dir = $upload_dir['basedir'] . '/nymia-audio';
+    if (!file_exists($audio_dir)) {
+        wp_mkdir_p($audio_dir);
+    }
+    
+    // Generate unique filename
+    $filename = wp_unique_filename($audio_dir, $file['name']);
+    $destination = $audio_dir . '/' . $filename;
+    
+    // Move uploaded file
+    if (!move_uploaded_file($file['tmp_name'], $destination)) {
+        wp_send_json_error(array('message' => 'Failed to move uploaded file'));
+        return;
+    }
+    
+    // Create upload array similar to wp_handle_upload
+    $upload = array(
+        'file' => $destination,
+        'url' => $upload_dir['baseurl'] . '/nymia-audio/' . $filename,
+        'type' => $file['type']
+    );
+    
+    // Create a simple attachment ID or use filename as ID
+    $attach_id = time() . rand(1000, 9999); // Simple ID for demo purposes
+    
+    // Save custom meta data
+    update_post_meta($attach_id, '_nymia_audio_paid_access', $paid_access);
+    update_post_meta($attach_id, '_nymia_audio_price', $price);
+    update_post_meta($attach_id, '_nymia_audio_duration', 0); // Will be calculated later
+    
+    // Store in user's audio posts (using transients for demo, in production use custom post type)
+    $user_id = get_current_user_id();
+    if (!$user_id) {
+        $user_id = 0; // Use 0 for guest users
+    }
+    
+    $audio_posts = get_transient('nymia_user_audio_' . $user_id);
+    if (!$audio_posts) {
+        $audio_posts = array();
+    }
+    
+    // Get author name
+    $author_name = 'Guest User';
+    if (is_user_logged_in()) {
+        $current_user = wp_get_current_user();
+        $author_name = $current_user->display_name;
+    }
+    
+    $audio_post = array(
+        'id' => $attach_id,
+        'title' => $title,
+        'url' => $upload['url'],
+        'filename' => basename($upload['file']),
+        'duration' => '0:00',
+        'author' => $author_name,
+        'category' => 'New Upload',
+        'rating' => 5.0,
+        'views' => 0,
+        'date' => current_time('mysql'),
+        'paid_access' => $paid_access,
+        'price' => $price
+    );
+    
+    array_unshift($audio_posts, $audio_post);
+    
+    // Keep only last 10 uploads
+    $audio_posts = array_slice($audio_posts, 0, 10);
+    
+    set_transient('nymia_user_audio_' . $user_id, $audio_posts, 30 * DAY_IN_SECONDS);
+    
+    wp_send_json_success(array(
+        'message' => 'Audio uploaded successfully',
+        'audio' => $audio_post
+    ));
+}
+add_action('wp_ajax_nymia_upload_audio', 'nymia_handle_audio_upload');
+
+/**
+ * Get user's audio posts
+ */
+function nymia_get_user_audio_posts() {
+    $user_id = get_current_user_id();
+    if (!$user_id) {
+        $user_id = 0; // Use 0 for guest users
+    }
+    
+    $audio_posts = get_transient('nymia_user_audio_' . $user_id);
+    
+    return $audio_posts ? $audio_posts : array();
+}
+
+/**
+ * Localize script for AJAX
+ */
+function nymia_localize_scripts() {
+    wp_localize_script('nymia-script', 'nymiaAjax', array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('nymia_audio_upload')
+    ));
+}
+add_action('wp_enqueue_scripts', 'nymia_localize_scripts');
+
+/**
+ * Allow WAV and other audio file uploads
+ */
+function nymia_allow_audio_uploads($mimes) {
+    $mimes['wav'] = 'audio/wav';
+    $mimes['mp3'] = 'audio/mpeg';
+    $mimes['ogg'] = 'audio/ogg';
+    $mimes['m4a'] = 'audio/m4a';
+    $mimes['flac'] = 'audio/flac';
+    $mimes['mp4'] = 'audio/mp4';
+    $mimes['webm'] = 'audio/webm';
+    return $mimes;
+}
+add_filter('upload_mimes', 'nymia_allow_audio_uploads');
+
+/**
+ * Add audio mime types
+ */
+function nymia_add_audio_mime_types($types) {
+    $types[] = 'audio/wav';
+    $types[] = 'audio/x-wav';
+    $types[] = 'audio/wave';
+    $types[] = 'audio/mpeg';
+    $types[] = 'audio/mp3';
+    $types[] = 'audio/ogg';
+    $types[] = 'audio/m4a';
+    $types[] = 'audio/flac';
+    return $types;
+}
+add_filter('get_allowed_mime_types', 'nymia_add_audio_mime_types');

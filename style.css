@@ -5018,6 +5018,161 @@ body {
     gap: 16px;
 }
 
+/* Compact Audio Post Cards */
+.nymia-audio-post-card-compact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--input);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.nymia-audio-post-card-compact:hover {
+    background-color: var(--muted);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.nymia-compact-audio-cover {
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: var(--primary);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-foreground);
+    flex-shrink: 0;
+}
+
+.nymia-compact-audio-cover svg {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+.nymia-compact-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.nymia-audio-post-card-compact:hover .nymia-compact-play-btn {
+    opacity: 1;
+}
+
+.nymia-compact-play-btn svg {
+    width: 0.625rem;
+    height: 0.625rem;
+}
+
+.nymia-compact-audio-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+}
+
+.nymia-compact-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin: 0;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nymia-compact-author {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    margin: 0;
+}
+
+.nymia-compact-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+}
+
+.nymia-compact-duration {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.nymia-compact-duration svg {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
+.nymia-compact-category {
+    background: var(--secondary);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.625rem;
+    font-weight: 500;
+}
+
+.nymia-compact-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.nymia-compact-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+}
+
+.nymia-compact-rating .nymia-star {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.nymia-rating-num {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--foreground);
+    margin-left: 0.25rem;
+}
+
+.nymia-compact-views {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+}
+
+.nymia-compact-views svg {
+    width: 0.875rem;
+    height: 0.875rem;
+}
+
 .nymia-view-all-btn {
     width: 100%;
     padding: 12px 24px;
@@ -7047,5 +7202,842 @@ body {
     
     .nymia-trending-item {
         min-width: 240px;
+    }
+}
+
+/* Audio Upload Enhancement Styles */
+.nymia-upload-options {
+    margin: 1.5rem 0;
+}
+
+.nymia-upload-mode-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 0.25rem;
+}
+
+.nymia-upload-mode-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: calc(var(--radius) - 0.25rem);
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nymia-upload-mode-btn:hover {
+    color: var(--foreground);
+    background: var(--secondary);
+}
+
+.nymia-upload-mode-btn.active {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.nymia-upload-mode-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.nymia-upload-progress {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.nymia-progress-bar {
+    width: 100%;
+    height: 0.5rem;
+    background: var(--secondary);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.nymia-progress-fill {
+    height: 100%;
+    background: var(--primary);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.nymia-progress-text {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    text-align: center;
+    display: block;
+}
+
+.nymia-recording-area {
+    padding: 1.5rem;
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.nymia-recording-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nymia-btn-record,
+.nymia-btn-stop,
+.nymia-btn-pause {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nymia-btn-stop {
+    background: var(--destructive);
+}
+
+.nymia-btn-pause {
+    background: var(--accent);
+}
+
+.nymia-btn-record:hover,
+.nymia-btn-stop:hover,
+.nymia-btn-pause:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.nymia-recording-status {
+    margin-bottom: 1.5rem;
+}
+
+.nymia-recording-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--destructive);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.nymia-recording-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    background: var(--destructive);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.nymia-recording-timer {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--foreground);
+    font-family: 'Courier New', monospace;
+}
+
+.nymia-recording-visualizer {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nymia-recording-visualizer canvas {
+    border-radius: var(--radius);
+    background: var(--secondary);
+}
+
+.nymia-recording-preview {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--secondary);
+    border-radius: var(--radius);
+}
+
+.nymia-recording-preview audio {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.nymia-btn-re-record {
+    background: var(--muted);
+    color: var(--muted-foreground);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nymia-btn-re-record:hover {
+    background: var(--accent);
+    color: var(--accent-foreground);
+}
+
+.nymia-uploaded-audio-preview {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--card);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.nymia-uploaded-audio-preview h3 {
+    margin-bottom: 1rem;
+    color: var(--foreground);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.nymia-audio-preview-player {
+    margin-bottom: 1rem;
+}
+
+.nymia-audio-preview-player audio {
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.nymia-audio-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+}
+
+.nymia-audio-filename {
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.nymia-btn-remove-audio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--destructive);
+    color: var(--destructive-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nymia-btn-remove-audio:hover {
+    opacity: 0.9;
+}
+
+.nymia-btn-remove-audio svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Responsive Design for Audio Upload */
+@media (max-width: 768px) {
+    .nymia-upload-mode-tabs {
+        flex-direction: column;
+    }
+    
+    .nymia-recording-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nymia-btn-record,
+    .nymia-btn-stop,
+    .nymia-btn-pause {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .nymia-recording-visualizer canvas {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Enhanced Creator Cards and Rating System */
+.nymia-creator-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.nymia-creator-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nymia-star-rating {
+    display: flex;
+    gap: 0.125rem;
+}
+
+.nymia-star {
+    width: 1rem;
+    height: 1rem;
+    color: var(--muted-foreground);
+    transition: color 0.2s ease;
+}
+
+.nymia-star.filled {
+    color: #fbbf24;
+    fill: #fbbf24;
+}
+
+.nymia-rating-score {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.nymia-creator-category {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.nymia-category-tag,
+.nymia-subcategory-tag {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.nymia-category-tag {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.nymia-subcategory-tag {
+    background: var(--secondary);
+    color: var(--muted-foreground);
+}
+
+/* Audio Files Section */
+.nymia-audio-files {
+    padding: 1rem;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+}
+
+.nymia-audio-files-title {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.nymia-audio-file-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--background);
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+}
+
+.nymia-audio-file-card:hover {
+    background: var(--secondary);
+    border-color: var(--primary);
+}
+
+.nymia-audio-cover {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    background: var(--primary);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-foreground);
+}
+
+.nymia-audio-cover svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.nymia-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.nymia-audio-file-card:hover .nymia-play-button {
+    opacity: 1;
+}
+
+.nymia-play-button svg {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.nymia-audio-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.nymia-audio-title {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.nymia-audio-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nymia-audio-rating .nymia-star-rating {
+    gap: 0.0625rem;
+}
+
+.nymia-audio-rating .nymia-star {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.nymia-audio-rating .nymia-rating-score {
+    font-size: 0.75rem;
+}
+
+.nymia-audio-meta {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+}
+
+.nymia-audio-duration {
+    font-weight: 500;
+}
+
+.nymia-audio-category {
+    font-style: italic;
+}
+
+/* Modern Footer Styles with Brand Colors */
+.nymia-footer {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    padding: 0;
+    clear: both;
+    margin-left: 256px; /* Offset for left sidebar */
+    width: calc(100% - 256px); /* Full width minus sidebar */
+}
+
+.nymia-footer-content {
+    max-width: 100%;
+    margin: 0;
+    padding: 3rem 2rem;
+}
+
+/* Newsletter Section */
+.nymia-footer-newsletter {
+    margin-bottom: 4rem;
+}
+
+.nymia-footer-heading {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+}
+
+.nymia-footer-subtext {
+    font-size: 1rem;
+    color: var(--muted-foreground);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+}
+
+.nymia-footer-newsletter-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 500px;
+}
+
+.nymia-footer-email-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    color: var(--foreground);
+    background: var(--background);
+    transition: border-color 0.2s ease;
+}
+
+.nymia-footer-email-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.nymia-footer-email-input::placeholder {
+    color: var(--muted-foreground);
+}
+
+.nymia-footer-subscribe-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nymia-footer-subscribe-btn:hover {
+    background: hsl(18, 70%, 50%);
+    transform: translateY(-1px);
+}
+
+/* Main Navigation */
+.nymia-footer-navigation {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.nymia-footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nymia-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.nymia-footer-logo svg {
+    width: 2rem;
+    height: 2rem;
+    stroke: var(--primary);
+}
+
+.nymia-footer-description {
+    font-size: 1rem;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.nymia-footer-nav-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.nymia-footer-nav-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nymia-footer-column-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.nymia-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.nymia-footer-links a {
+    color: var(--muted-foreground);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nymia-footer-links a:hover {
+    color: var(--primary);
+}
+
+.nymia-badge {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    background: var(--muted);
+    color: var(--primary);
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Footer Bottom */
+.nymia-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.nymia-footer-copyright {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin: 0;
+}
+
+.nymia-footer-social-icons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.nymia-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--foreground);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nymia-social-icon:hover {
+    background: var(--muted);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.nymia-social-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.nymia-social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.nymia-social-link {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nymia-social-link:hover {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    transform: translateY(-2px);
+}
+
+.nymia-social-link svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.nymia-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    gap: 2rem;
+}
+
+.nymia-footer-info {
+    flex: 1;
+}
+
+.nymia-footer-copyright {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--foreground);
+    font-weight: 500;
+}
+
+.nymia-footer-description {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+}
+
+.nymia-footer-newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-width: 300px;
+}
+
+.nymia-footer-newsletter h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.nymia-newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nymia-newsletter-form input {
+    flex: 1;
+    padding: 0.75rem;
+    background: var(--input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--foreground);
+    font-size: 0.875rem;
+}
+
+.nymia-newsletter-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.nymia-newsletter-form button {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.nymia-newsletter-form button:hover {
+    background: var(--primary-dark);
+}
+
+/* Responsive Footer */
+@media (max-width: 1024px) {
+    .nymia-footer {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .nymia-footer-nav-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .nymia-footer-navigation {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nymia-footer-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .nymia-footer-nav-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .nymia-footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    
+    .nymia-footer-social-icons {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .nymia-footer-nav-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .nymia-footer-brand {
+        text-align: center;
+    }
+    
+    .nymia-footer-logo {
+        justify-content: center;
     }
 }
